@@ -1,7 +1,14 @@
 @extends('layouts.backend')
 
 @push('plugin_css')
-<link href="{{ url('assets/backend') }}/plugins/chartist/dist/chartist.min.css" type="text/css" rel="stylesheet">
+    <link href="{{ url('assets/backend') }}/plugins/chartist/dist/chartist.min.css" type="text/css" rel="stylesheet">
+    <style>
+        .ct-bar {
+            fill: none;
+            stroke-width: 25px;
+        }
+
+    </style>
 @endpush
 
 @section('content')
@@ -58,7 +65,7 @@
                         <div class="card-options">
                         </div>
                         <span class="card-title">Diagram Penjualan</span>
-                        <div class="ct-chart-distributed ct-chart ct-golden-section"></div>
+                        <div class="ct-chart-distributed ct-chart ct-golden-section" style="max-height: 400px"></div>
                     </div>
                 </div>
             </div>

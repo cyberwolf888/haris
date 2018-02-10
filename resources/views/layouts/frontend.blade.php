@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>D&G Furniture</title>
+    <title>{{ env('APP_NAME') }}</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
@@ -33,6 +33,7 @@
 
     <!-- Style customizer (Remove these two lines please) -->
     <link rel="stylesheet" href="{{ url('assets/frontend') }}/css/style-customizer.css">
+    <link href="{{ url('assets/frontend') }}/css/color/color-7.css" data-style="styles" rel="stylesheet">
     @stack('plugin_css')
 
     <!-- Modernizer JS
@@ -70,7 +71,7 @@
     <div class="header-area sticky header-area-1  clearfix">
         <!-- Header Left 1 -->
         <div class="header-left header-left-1 float-left">
-            <a href="index.html" class="logo"><img src="{{ url('assets/frontend') }}/img/logo.png" alt="logo" /></a>
+            <a href="index.html" class="logo"><img src="{{ url('assets/frontend') }}/img/logo.jpg" alt="logo" /></a>
         </div>
         <!-- Menu Wrapper 1 -->
         <div class="menu-wrapper menu-wrapper-1 hidden-sm hidden-xs text-center">
@@ -210,7 +211,7 @@
         <div class="container">
             <div class="row">
                 <div class="footer-about col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                    <img src="{{ url('assets/frontend') }}/img/logo-2.png" alt="" />
+                    <img src="{{ url('assets/frontend') }}/img/logo.jpg" alt="" />
                     <p>Kami adalah toko furniture yang memberikan harga terbaik dengan kualitas terbaik untuk anda.</p>
                     <div class="footer-social fix">
                         <a href="#"><i class="zmdi zmdi-facebook"></i></a>

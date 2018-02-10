@@ -141,7 +141,7 @@ class ProductController extends Controller
             'image' => 'required|image'
         ]);
         $model = new ProductImages();
-        $path = base_path('../assets/img/product/'.$id.'/');
+        $path = base_path('assets/img/product/'.$id.'/');
         if(!File::exists($path)) {
             File::makeDirectory($path, $mode = 0777, true, true);
         }
@@ -157,7 +157,7 @@ class ProductController extends Controller
     {
         $model = ProductImages::findOrFail($id);
         $product_id = $model->product_id;
-        $path = base_path('../assets/img/product/'.$product_id.'/');
+        $path = base_path('assets/img/product/'.$product_id.'/');
         if(is_file($path.$model->image)){
             unlink($path.$model->image);
             unlink($path.'thumb_'.$model->image);

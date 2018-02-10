@@ -196,7 +196,7 @@ class HomeController extends Controller
         $id = base64_decode($id);
         $transaction = Transaction::findOrFail($id);
 
-        $path = base_path('../assets/img/payment/');
+        $path = base_path('assets/img/payment/');
         $file = Image::make($request->file('image'))->resize(800, 600)->encode('jpg', 80)->save($path.md5(str_random(12)).'.jpg');
 
         $model = new Payment();

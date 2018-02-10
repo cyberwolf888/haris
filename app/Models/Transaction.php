@@ -32,7 +32,7 @@ class Transaction extends Model
     {
         $date = date('ym');
         $lastRecord = Transaction::orderBy('created_at', 'DESC')->first();
-        if(count($lastRecord)>0){
+        if($lastRecord->count()>0){
             $lastId = substr($lastRecord->id,6)+1;
         }else{
             $lastId = "001";

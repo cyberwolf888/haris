@@ -4,7 +4,7 @@
 <head>
 
     <!-- Title -->
-    <title>D&G Furniture | Backend</title>
+    <title>{{ env('APP_NAME') }} | Backend</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <meta charset="UTF-8">
@@ -78,7 +78,7 @@
 </div>
 <div class="mn-content fixed-sidebar">
     <header class="mn-header navbar-fixed">
-        <nav class="light-blue darken-1">
+        <nav class="red darken-1">
             <div class="nav-wrapper row">
                 <section class="material-design-hamburger navigation-toggle">
                     <a href="javascript:void(0)" data-activates="slide-out" class="button-collapse show-on-large material-design-hamburger__icon">
@@ -86,7 +86,7 @@
                     </a>
                 </section>
                 <div class="header-title col s3 m3">
-                    <span class="chapter-title">D&G Furniture</span>
+                    <span class="chapter-title">SLASHROCK</span>
                 </div>
                 <ul class="right col s9 m3 nav-right-menu">
                     <?php $new_order = \App\Models\Transaction::where('status',\App\Models\Transaction::NEW_ORDER)->count(); ?>
@@ -120,11 +120,11 @@
 
 
 
-    <aside id="slide-out" class="side-nav grey fixed">
+    <aside id="slide-out" class="side-nav white fixed">
         <div class="side-nav-wrapper">
             <div class="sidebar-profile">
                 <div class="sidebar-profile-image">
-                    <img src="{{ url('assets/backend') }}/images/profile-image.png" class="circle" alt="">
+                    <img src="{{ url('assets/backend') }}/images/avatar.jpg" class="circle" alt="">
                 </div>
                 <div class="sidebar-profile-info">
                     <a href="javascript:void(0);" >

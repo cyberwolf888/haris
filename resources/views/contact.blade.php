@@ -55,17 +55,17 @@
                     <div class="sin-con-info fix">
                         <div class="content fix">
                             <p class="name">Customer Service</p>
-                            <p class="title">MANAGER of STUFF</p>
+                            <p class="title">MANAGER of SLASHROCK</p>
                             <p class="info"><i class="zmdi zmdi-phone-in-talk"></i><span>Phone : +061012345678</span></p>
-                            <p class="info"><i class="zmdi zmdi-email"></i><span>anikamollik@outlook.com</span></p>
+                            <p class="info"><i class="zmdi zmdi-email"></i><span>manager@outlook.com</span></p>
                         </div>
                     </div>
                     <div class="sin-con-info fix">
                         <div class="content fix">
                             <p class="name">System Admin</p>
-                            <p class="title">MANAGER of STUFF</p>
+                            <p class="title">MANAGER of SLASHROCK</p>
                             <p class="info"><i class="zmdi zmdi-phone-in-talk"></i><span>Phone : +061012345678</span></p>
-                            <p class="info"><i class="zmdi zmdi-email"></i><span>anikamollik@outlook.com</span></p>
+                            <p class="info"><i class="zmdi zmdi-email"></i><span>info@outlook.com</span></p>
                         </div>
                     </div>
                 </div>

@@ -102,6 +102,7 @@ class UserController extends Controller
                 ->withInput();
         }
         $user->name = $request->fullname;
+        $user->email = $request->email;
         $user->phone = $request->phone;
         $user->address = $request->address;
         $user->city = $request->city;
@@ -204,6 +205,7 @@ class UserController extends Controller
                 ->withInput();
         }
         $user->name = $request->fullname;
+        $user->email = $request->email;
         $user->phone = $request->phone;
         $user->address = $request->address;
         $user->city = $request->city;
@@ -306,6 +308,7 @@ class UserController extends Controller
                 ->withInput();
         }
         $user->name = $request->fullname;
+        $user->email = $request->email;
         $user->phone = $request->phone;
         $user->address = $request->address;
         $user->city = $request->city;
