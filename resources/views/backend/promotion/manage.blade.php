@@ -67,7 +67,7 @@
                             <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Phone Nuymber</th>
+                                <th>Email</th>
                                 <th>Join Date</th>
                                 <th>Action</th>
                             </tr>
@@ -75,7 +75,7 @@
                             <tfoot>
                             <tr>
                                 <th>No</th>
-                                <th>Phone Nuymber</th>
+                                <th>Email</th>
                                 <th>Join Date</th>
                                 <th>Action</th>
                             </tr>
@@ -85,7 +85,7 @@
                             @foreach($subscriber as $row)
                                 <tr>
                                     <td>{{ $no }}</td>
-                                    <td>{{ $row->phone }}</td>
+                                    <td>{{ $row->email }}</td>
                                     <td>{{ date('d F Y', strtotime($row->created_at)) }}</td>
                                     <td>
                                         <a href="{{ url(route('backend.promotion.delete', ['id' => $row->id])) }}" class="btn-floating red" style="opacity: 1;"><i class="material-icons">clear</i></a>

@@ -47,9 +47,20 @@
                                 </h3>
                             </div>
                             <p>{{ $model->description }}</p>
+                            <div class="product-quantity-size fix">
+
+                            </div>
                             <div class="single-product-action-quantity fix">
                                 <div class="pro-details-action float-left">
                                     <button id="btn_add" class="pro-details-act-btn btn-text active"><i class="zmdi zmdi-shopping-cart"></i>add to cart</button>
+                                </div>
+                                <div class="single-pro-size-2 float-right" style="margin-left: 10px;">
+                                    <h5>Size:</h5>
+                                    <select name="size" id="size">
+                                        @foreach($size as $s)
+                                        <option value="{{ $s }}">{{ $s }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="pro-qty float-right">
                                     <input value="1" name="qty" id="qty" class="cart-plus-minus-box" type="text">
@@ -73,6 +84,10 @@
                             <div id="spec" class="pro-details-tab pro-dsc-tab tab-pane active">
                                 <div class="col-md-6">
                                     <table class="table table-striped">
+                                        <tr>
+                                            <td width="30%">Stock</td>
+                                            <td><b>{{ $model->stock }}</b></td>
+                                        </tr>
                                         <tr>
                                             <td width="30%">Wieght</td>
                                             <td><b>{{ $model->weight }} kg</b></td>
@@ -105,6 +120,7 @@
     $(document).ready(function () {
         $("#btn_add").click(function () {
             var qty = $("#qty").val();
+            var size = $("#size").val();
             var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
             $.ajaxSetup({
                 headers: {
@@ -114,7 +130,7 @@
             $.ajax({
                 url: '<?= route('frontend.cart.insert') ?>',
                 type: 'POST',
-                data: {qty:qty, product_id:'<?= $model->id ?>'},
+                data: {qty:qty, size:size, product_id:'<?= $model->id ?>'},
                 success: function (data) {
                     //console.log(data);
                     location.reload();

@@ -36,7 +36,7 @@
                             </div>
                         </div>
                         <div class="input-box submit-box fix">
-                            <input value="Send Message" type="submit">
+                            <input value="Send Payment" type="submit">
                         </div>
                     </form>
                     <p class="form-messege"></p>

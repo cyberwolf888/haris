@@ -80,7 +80,17 @@ class HomeController extends Controller
     public function product_detail($id)
     {
         $model = Product::findOrFail($id);
-        return view('product_detail',['model'=>$model]);
+        $detail = ProductDetail::where('product_id',$id)->where('label','Size')->first();
+        $size = [];
+        if(!is_null($detail)){
+            $_size = explode(',', $detail->value);
+            foreach ($_size as $s){
+                $size[$s] = $s;
+            }
+        }else{
+            $size = ['All Size'=>'All Size'];
+        }
+        return view('product_detail',['model'=>$model,'size'=>$size]);
     }
 
     //Cart
@@ -92,12 +102,11 @@ class HomeController extends Controller
     public function cart_insert(Request $request)
     {
         $product = Product::findOrFail($request->product_id);
-        $details = ProductDetail::where('product_id',$product->id)->pluck('value','label')->toArray();
         $price = $product->price;
         if($product->discount>0){
             $price = $product->price-($product->price*$product->discount/100);
         }
-        Cart::instance('cart')->add($product->id, $product->name, $request->qty, $price, $details)->associate('App\Models\Product');
+        Cart::instance('cart')->add($product->id, $product->name, $request->qty, $price, ['size'=>$request->size])->associate('App\Models\Product');
         return response()->json([
             'status' => '1'
         ]);
@@ -157,6 +166,7 @@ class HomeController extends Controller
             $detail = new TransactionDetail();
             $detail->transaction_id = $model->id;
             $detail->product_id = $row->id;
+            $detail->size = $row->options['size'];
             $detail->qty = $row->qty;
             $detail->price = $row->price;
             $detail->total = $row->qty*$row->price;
@@ -214,8 +224,8 @@ class HomeController extends Controller
     //Subscribe
     public function subscribe(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'phone' => 'required|max:12|unique:subscribe'
+        $validator = \Validator::make($request->all(), [
+            'phone' => 'required|max:255|unique:subscribe,email'
         ]);
 
         if ($validator->fails()) {
@@ -223,7 +233,7 @@ class HomeController extends Controller
         }
 
         $model = new Subscribe();
-        $model->phone = $request->phone;
+        $model->email = $request->phone;
         $model->save();
         return '1';
     }

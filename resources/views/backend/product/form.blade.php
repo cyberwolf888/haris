@@ -45,6 +45,12 @@
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
+                                    {!! Form::number('stock', $model->stock,['class'=>'validate','required'=>'','aria-required'=>'true']) !!}
+                                    {!! Form::label('stock', 'Stock', ['data-error' => 'wrong','data-success'=>'right']) !!}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
                                     {!! Form::number('weight', $model->weight,['class'=>'validate','required'=>'','aria-required'=>'true']) !!}
                                     {!! Form::label('weight', 'Product Weight (kg)', ['data-error' => 'wrong','data-success'=>'right']) !!}
                                 </div>

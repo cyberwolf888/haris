@@ -72,6 +72,7 @@
                                     <li class="collection-item">
                                         <span class="grey-text text-lighten-1">{{ \App\Models\Product::find($detail->product_id)->name }}</span><br>
                                         Price: Rp {{ number_format($detail->price,0,',','.') }}<br>
+                                        Size: {{ $detail->size }}<br>
                                         Qty: {{ $detail->qty }}<br>
                                         Total: Rp {{ number_format($detail->total,0,',','.') }}
                                     </li>

@@ -156,6 +156,7 @@
                     </div>
                 </li>
                 <li class="no-padding @if (str_is('*.report.*', Route::currentRouteName())) active @endif"><a class="waves-effect waves-grey" href="{{ route('backend.report.index') }}"><i class="material-icons">assessment</i>Report</a></li>
+                <li class="no-padding @if (str_is('*.promotion.*', Route::currentRouteName())) active @endif"><a class="waves-effect waves-grey" href="{{ route('backend.promotion.index') }}"><i class="material-icons">assessment</i>Promotion</a></li>
                 <li class="no-padding @if (str_is('*.setting.*', Route::currentRouteName())) active @endif"><a class="waves-effect waves-grey" href="{{ route('backend.setting.manage') }}"><i class="material-icons">settings</i>Setting</a></li>
                 <li class="no-padding @if (str_is('*.profile.*', Route::currentRouteName())) active @endif"><a class="waves-effect waves-grey" href="{{ route('backend.profile.index') }}"><i class="material-icons">account_circle</i>Profile</a></li>
                 <li class="no-padding">

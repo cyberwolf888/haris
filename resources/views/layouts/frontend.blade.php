@@ -6,7 +6,7 @@
     <title>{{ env('APP_NAME') }}</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
@@ -188,7 +188,7 @@
                             <div class="newsletter-form float-right">
                                 <form id="mc-form" class="mc-form" action="{{ route('frontend.subscribe') }}" method="post">
                                     {{ csrf_field() }}
-                                    <input id="phone" name="phone" type="text" autocomplete="off" placeholder="Enter Phone Number..." />
+                                    <input id="phone" name="phone" type="text" autocomplete="off" placeholder="Enter Email Address..." />
                                     <input id="mc-submit" type="submit" value="subscribe" />
                                 </form>
                                 <!-- mailchimp-alerts Start -->
@@ -212,13 +212,11 @@
             <div class="row">
                 <div class="footer-about col-lg-3 col-md-4 col-sm-6 col-xs-12">
                     <img src="{{ url('assets/frontend') }}/img/logo.jpg" alt="" />
-                    <p>Kami adalah toko furniture yang memberikan harga terbaik dengan kualitas terbaik untuk anda.</p>
+                    <p>Kami adalah toko pakaian yang memberikan harga terbaik dengan kualitas terbaik untuk anda.</p>
                     <div class="footer-social fix">
-                        <a href="#"><i class="zmdi zmdi-facebook"></i></a>
-                        <a href="#"><i class="zmdi zmdi-instagram"></i></a>
-                        <a href="#"><i class="zmdi zmdi-rss"></i></a>
-                        <a href="#"><i class="zmdi zmdi-twitter"></i></a>
-                        <a href="#"><i class="zmdi zmdi-pinterest"></i></a>
+                        <a href="https://www.facebook.com/SlashRockGear"><i class="zmdi zmdi-facebook"></i></a>
+                        <a href="https://www.instagram.com/slashrockgear/"><i class="zmdi zmdi-instagram"></i></a>
+                        <a href="https://twitter.com/SlashrockGear"><i class="zmdi zmdi-twitter"></i></a>
                     </div>
                 </div>
                 <div class="footer-information col-lg-3 col-md-2 col-sm-6 col-xs-12">
@@ -270,10 +268,8 @@
                 </div>
                 <div class="payment-method text-right col-sm-6 col-xs-12">
                     <img src="{{ url('assets/frontend') }}/img/payment/1.png" alt="payment" />
-                    <img src="{{ url('assets/frontend') }}/img/payment/2.png" alt="payment" />
                     <img src="{{ url('assets/frontend') }}/img/payment/3.png" alt="payment" />
                     <img src="{{ url('assets/frontend') }}/img/payment/4.png" alt="payment" />
-                    <img src="{{ url('assets/frontend') }}/img/payment/5.png" alt="payment" />
                 </div>
             </div>
         </div>
@@ -313,7 +309,7 @@
         $.ajax({
             url: '<?= route('frontend.subscribe') ?>',
             type: 'POST',
-            data: {phone:$("#phone").val()},
+            data: {phone:$("#phone").val(), _token:CSRF_TOKEN},
             success: function (data) {
                 if(data == "1"){
                     $('.mailchimp-success').html('' + "Thank you for your subscribe!").fadeIn(900);

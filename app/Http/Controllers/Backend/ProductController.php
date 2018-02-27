@@ -46,6 +46,7 @@ class ProductController extends Controller
         $model->category_id = $request->category_id;
         $model->name = $request->name;
         $model->price = $request->price;
+        $model->stock = $request->stock;
         $model->weight = $request->weight;
         $model->description = $request->description;
         $model->discount = $request->discount;
@@ -96,6 +97,7 @@ class ProductController extends Controller
         $model->category_id = $request->category_id;
         $model->name = $request->name;
         $model->price = $request->price;
+        $model->stock = $request->stock;
         $model->weight = $request->weight;
         $model->description = $request->description;
         $model->discount = $request->discount;

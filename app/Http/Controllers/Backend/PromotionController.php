@@ -25,20 +25,20 @@ class PromotionController extends Controller
             $member = User::where('type',User::MEMBER)->get();
             $subscribe = Subscribe::all();
             foreach ($member as $m){
-                Sms::send($m->phone, $request->promotions);
+                //Sms::send($m->phone, $request->promotions);
             }
             foreach ($subscribe as $s){
-                Sms::send($s->phone, $request->promotions);
+                //Sms::send($s->phone, $request->promotions);
             }
         }elseif ($request->status == 1){
             $member = Member::all();
             foreach ($member as $m){
-                Sms::send($m->phone, $request->promotions);
+                //Sms::send($m->phone, $request->promotions);
             }
         }elseif ($request->status == 2){
             $subscribe = Subscribe::all();
             foreach ($subscribe as $s){
-                Sms::send($s->phone, $request->promotions);
+                //Sms::send($s->phone, $request->promotions);
             }
         }
 
