@@ -72,17 +72,7 @@
                         <li>
                             <span class="name">Shipping</span><span class="price">
                                 <?php $shipping = 0; ?>
-                                @if(Auth::check())
-                                    @if(Auth::user()->city == "Denpasar" || Auth::user()->city == "Badung")
-                                        FREE
-                                    @else
-                                        <?php $shipping = $berat*\App\Models\Setting::find(1)->value; ?>
-                                        Rp {{ number_format($shipping,0,',','.') }}
-                                    @endif
-                                @else
-                                    <?php $shipping = $berat*\App\Models\Setting::find(1)->value; ?>
-                                    Rp {{ number_format($shipping,0,',','.') }}
-                                @endif
+                                FREE
                             </span>
                         </li>
                         <li><span class="name">Grand Total</span><span class="price">Rp {{ number_format($shipping+\Cart::instance('cart')->total(0,'',''),0,',','.') }}</span></li>

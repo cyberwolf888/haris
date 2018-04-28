@@ -17,48 +17,6 @@
         </div>
     </div>
 
-    <!-- Shipping Area============================================ -->
-    <div class="shipping-area  pb-90">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="shipping-wrapper-1">
-                        <!-- Single Shipping -->
-                        <div class="sin-shipping-1 col-md-4 col-md-offset-0 col-sm-8 col-sm-offset-2 col-xs-12">
-                            <div class="icon float-left">
-                                <i class="zmdi zmdi-car"></i>
-                            </div>
-                            <div class="content fix">
-                                <h4>FREE SHOP ALL ORDER</h4>
-                                <p>Gratis ongkos kirim untuk daerah Denpasar & Badung</p>
-                            </div>
-                        </div>
-                        <!-- Single Shipping -->
-                        <div class="sin-shipping-1 col-md-4 col-md-offset-0 col-sm-8 col-sm-offset-2 col-xs-12">
-                            <div class="icon float-left">
-                                <i class="zmdi zmdi-balance-wallet"></i>
-                            </div>
-                            <div class="content fix">
-                                <h4>Best Price</h4>
-                                <p>Kami menawarkan harga terbaik untuk anda</p>
-                            </div>
-                        </div>
-                        <!-- Single Shipping -->
-                        <div class="sin-shipping-1 col-md-4 col-md-offset-0 col-sm-8 col-sm-offset-2 col-xs-12">
-                            <div class="icon float-left">
-                                <i class="zmdi zmdi-headset"></i>
-                            </div>
-                            <div class="content fix">
-                                <h4>24/7 SUPPORT</h4>
-                                <p>Layanan customer service setiap saat</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Products Area============================================ -->
     <div class="products-area  pb-40">
         <div class="container">

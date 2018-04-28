@@ -15,6 +15,7 @@ Auth::routes();
 
 //Frontend
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home_2');
 Route::get('/detail/{id}', 'HomeController@product_detail')->name('frontend.product_detail');
 Route::get('/cart', 'HomeController@cart_manage')->name('frontend.cart.manage');
 Route::post('/cart/insert', 'HomeController@cart_insert')->name('frontend.cart.insert');

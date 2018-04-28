@@ -102,6 +102,12 @@ class HomeController extends Controller
     public function cart_insert(Request $request)
     {
         $product = Product::findOrFail($request->product_id);
+        if($product->stock < $request->qty){
+            return response()->json([
+                'status' => '0',
+                'stock' => $product->stock
+            ]);
+        }
         $price = $product->price;
         if($product->discount>0){
             $price = $product->price-($product->price*$product->discount/100);
@@ -151,11 +157,12 @@ class HomeController extends Controller
         {
             $berat+=($row->model->weight*$row->qty);
         }
-        if(Auth::user()->city == "Denpasar" || Auth::user()->city == "Badung"){
+        /*if(Auth::user()->city == "Denpasar" || Auth::user()->city == "Badung"){
             $model->shipping = 0;
         }else{
             $model->shipping = $berat*\App\Models\Setting::find(1)->value;
-        }
+        }*/
+        $model->shipping = 0;
         $model->total = $model->shipping+$model->subtotal;
         $model->status = Transaction::NEW_ORDER;
         $model->note = $request->note;
@@ -163,6 +170,7 @@ class HomeController extends Controller
 
         foreach ($cart->content() as $row)
         {
+            $product = Product::find($row->id);
             $detail = new TransactionDetail();
             $detail->transaction_id = $model->id;
             $detail->product_id = $row->id;
@@ -171,6 +179,9 @@ class HomeController extends Controller
             $detail->price = $row->price;
             $detail->total = $row->qty*$row->price;
             $detail->save();
+
+            $product->stock = $product->stock-$row->qty;
+            $product->save();
         }
         $cart->destroy();
 

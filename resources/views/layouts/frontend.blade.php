@@ -97,7 +97,7 @@
         <div class="header-right header-right-1 float-right">
             <!-- Account Menu -->
             <div class="account-menu account-menu-1 float-right">
-                <button data-toggle="dropdown" class="acc-menu-toggle"><i class="zmdi zmdi-settings"></i></button>
+                <button data-toggle="dropdown" class="acc-menu-toggle"><i class="zmdi zmdi-account"></i></button>
                 <ul class="acc-menu-dropdown dropdown-menu right">
                     @if(!Auth::check())
                     <li><a href="{{ url('login') }}">login</a></li>

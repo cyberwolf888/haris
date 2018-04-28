@@ -133,7 +133,12 @@
                 data: {qty:qty, size:size, product_id:'<?= $model->id ?>'},
                 success: function (data) {
                     //console.log(data);
-                    location.reload();
+                    if(data.status == "1"){
+                        location.reload();
+                    }else{
+                        alert("Stock yang tersisi hanya "+ data.stock);
+                    }
+
                 }
             });
         });

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Models\Payment;
+use App\Models\Product;
 use App\Models\Sms;
 use App\Models\Transaction;
 use App\User;
@@ -93,6 +94,13 @@ class TransactionController extends Controller
 
         $model->status = Transaction::CANCEL;
         $model->save();
+
+        foreach($model->transaction_detail as $detail)
+        {
+            $product = Product::find($detail->product_id);
+            $product->stock = $product->stock + $detail->qty;
+            $product->save();
+        }
 
         Sms::send($member->phone, 'Psanan anda #'.$model->id.' telah dibatalkan.');
         return redirect()->back();
