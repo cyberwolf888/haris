@@ -96,7 +96,7 @@
 
                 <ul id="dropdown1" class="dropdown-content notifications-dropdown">
                     @if($new_order>0)
-                    <?php $tr = \App\Models\Transaction::where('status',\App\Models\Transaction::NEW_ORDER)->get(); ?>
+                    <?php $tr = \App\Models\Transaction::where('status',\App\Models\Transaction::NEW_ORDER)->orWhere('status',\App\Models\Transaction::WAITING_VERIFIED)->get(); ?>
                     <li class="notificatoins-dropdown-container">
                         <ul>
                             <li class="notification-drop-title">New Transaction</li>

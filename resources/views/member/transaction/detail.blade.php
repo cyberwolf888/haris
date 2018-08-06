@@ -39,6 +39,12 @@
                                     <span class="grey-text text-lighten-1">status</span><br>
                                     <b>{{ $model->getStatus($model->status) }}</b>
                                 </li>
+                                @if(!is_null($model->resi))
+                                    <li class="collection-item">
+                                        <span class="grey-text text-lighten-1">No. Resi</span><br>
+                                        <b>{{ $model->resi }}</b>
+                                    </li>
+                                @endif
                                 <li class="collection-item">
                                     <span class="grey-text text-lighten-1">Subtotal</span><br>
                                     <b>Rp {{ number_format($model->subtotal,0,',','.') }}</b>

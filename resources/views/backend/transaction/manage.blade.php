@@ -45,7 +45,7 @@
                                     <td>{{ $row->fullname }}</td>
                                     <td>{{ $row->phone }}</td>
                                     <td>{{ 'Rp '.number_format($row->total,0,',','.') }}</td>
-                                    <td>{{ $row->getStatus($row->status) }}</td>
+                                    <td>{{ $row->getStatus($row->status,true) }}</td>
                                     <td>{{ date("d M Y, H:i",strtotime($row->created_at)) }}</td>
                                     <td>
                                         <a href="{{ url(route('backend.transaction.show', ['id' => $row->id])) }}" class="btn-floating blue" style="opacity: 1;"><i class="material-icons">subject</i></a>

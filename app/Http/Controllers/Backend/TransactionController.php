@@ -69,6 +69,7 @@ class TransactionController extends Controller
         $member = User::find($model->member_id);
 
         $model->status = Transaction::SHIPPED;
+        $model->resi = $request->resi;
         $model->save();
 
         Sms::send($member->phone, 'Psanan anda #'.$model->id.' sedang dikirim.');

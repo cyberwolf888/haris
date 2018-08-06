@@ -16,7 +16,7 @@ class Transaction extends Model
     const FINISH = 5; //pesanan selesai
     const CANCEL = 0; // pesanan dibatalkan
 
-    public function getStatus($index)
+    public function getStatus($index, $isAdmin = false)
     {
         $status = [
             '0'=>'Canceled',
@@ -26,6 +26,16 @@ class Transaction extends Model
             '4'=>'Pesanan Sudah Dikirim',
             '5'=>'Transaksi Selesai'
         ];
+        if($isAdmin){
+	        $status = [
+		        '0'=>'Canceled',
+		        '1'=>'Menunggu Pembayaran',
+		        '2'=>'Pesanan Butuh Diverifikasi',
+		        '3'=>'Pesanan Butuh Diproses',
+		        '4'=>'Pesanan Sudah Dikirim',
+		        '5'=>'Transaksi Selesai'
+	        ];
+        }
         return $status[$index];
     }
     public function createId()

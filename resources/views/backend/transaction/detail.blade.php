@@ -39,8 +39,14 @@
                                     </li>
                                     <li class="collection-item">
                                         <span class="grey-text text-lighten-1">status</span><br>
-                                        <b>{{ $model->getStatus($model->status) }}</b>
+                                        <b>{{ $model->getStatus($model->status,true) }}</b>
                                     </li>
+                                    @if(!is_null($model->resi))
+                                    <li class="collection-item">
+                                        <span class="grey-text text-lighten-1">No. Resi</span><br>
+                                        <b>{{ $model->resi }}</b>
+                                    </li>
+                                    @endif
                                     <li class="collection-item">
                                         <span class="grey-text text-lighten-1">Subtotal</span><br>
                                         <b>Rp {{ number_format($model->subtotal,0,',','.') }}</b>
@@ -145,6 +151,12 @@
         <div class="modal-content">
             <h4>Cancel</h4>
             <p>Are you sure to shipp this transaction?</p>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input name="resi" id="resi" type="text" class="validate" value="" required="" aria-required="true">
+                    <label for="resi" data-error="wrong" data-success="valid">No. Resi</label>
+                </div>
+            </div>
             {!! Form::hidden('transaction_id',$model->id) !!}
         </div>
         <div class="modal-footer">
