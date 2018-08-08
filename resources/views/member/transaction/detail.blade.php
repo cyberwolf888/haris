@@ -94,7 +94,8 @@
                                 @foreach($model->payment as $payment)
                                     <div class="col s4 m4 ">
                                         <br><br>
-                                        <a href="{{ url('assets/img/payment/'.$payment->image) }}" target="_blank"><img src="{{ url('assets/img/payment/'.$payment->image) }}" style="width: 300px; height: 300px;"></a>
+                                        <a href="{{ url('assets/img/payment/'.$payment->image) }}" target="_blank"><img src="{{ url('assets/img/payment/'.$payment->image) }}" style="width: 300px; height: 300px;"></a><br>
+                                        Atas Nama {{ strtoupper($payment->beneficiary_name )}}
                                     </div>
                                 @endforeach
                             </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Models\Member;
 use App\Models\Transaction;
+use App\Models\View;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -21,6 +22,7 @@ class DashboardController extends Controller
         //dd($sales);
         $count_transaction = Transaction::where('created_at','>=',$end_date)->count('id');
         $member = User::where('type',3)->where('created_at','>=',date("Y-m-d", strtotime('-4 week', strtotime($start_date))))->count('id');
+        $visitor = View::where('created_at','>=',date("Y-m-d"))->count('id');
         $transaction = Transaction::limit(5)->orderBy('id','DESC')->get();
 
 
@@ -44,6 +46,7 @@ class DashboardController extends Controller
         return view('backend.dashboard.index',[
             'sales'=>$sales,
             'member'=>$member,
+            'visitor'=>$visitor,
             'count_transaction'=>$count_transaction,
             'transaction'=>$transaction,
             'series'=>$series,

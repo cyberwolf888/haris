@@ -102,10 +102,12 @@
                             <div class="col s4 m4 ">
                                 @if($payment->status == 0 && $model->status == \App\Models\Transaction::WAITING_VERIFIED)
                                     <a class="waves-effect waves-light btn green modal-trigger" href="#modal_approve" onclick="event.preventDefault();document.getElementById('payment_id').value = '<?= $payment->id ?>' ;"><i class="material-icons left">done</i>Approve</a>
-                                    <a class="waves-effect waves-light btn red modal-trigger" href="#modal_decline" onclick="event.preventDefault();document.getElementById('payment_id').value = '<?= $payment->id ?>' ;"><i class="material-icons left">clear</i>Decline</a>
+                                    <a class="waves-effect waves-light btn red modal-trigger" href="#modal_decline" onclick="event.preventDefault();document.getElementById('payment_id_decline').value = '<?= $payment->id ?>' ;"><i class="material-icons left">clear</i>Decline</a>
                                 @endif
                                 <br><br>
                                 <a href="{{ url('assets/img/payment/'.$payment->image) }}" target="_blank"><img src="{{ url('assets/img/payment/'.$payment->image) }}" style="width: 300px; height: 300px;"></a>
+                                <br>
+                                Atas Nama {{ strtoupper($payment->beneficiary_name )}}
                             </div>
                             @endforeach
                         </div>
@@ -138,7 +140,7 @@
             <h4>Decline</h4>
             <p>Are you sure to decline this payment?</p>
             {!! Form::hidden('transaction_id',$model->id) !!}
-            {!! Form::hidden('payment_id',null,['id'=>'payment_id']) !!}
+            {!! Form::hidden('payment_id',null,['id'=>'payment_id_decline']) !!}
         </div>
         <div class="modal-footer">
             {!! Form::submit('Yes',['class'=>'waves-effect waves-green btn-flat']) !!}

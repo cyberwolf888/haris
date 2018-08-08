@@ -9,14 +9,21 @@ use App\Models\ProductDetail;
 use App\Models\Subscribe;
 use App\Models\Transaction;
 use App\Models\TransactionDetail;
+use App\Models\View;
 use Illuminate\Http\Request;
 use Cart;
 use Validator;
 use Auth;
 use Image;
+use DB;
 
 class HomeController extends Controller
 {
+	public function __construct()
+	{
+		//parent::__construct();
+		$this->visitor();
+	}
 
     //Home
     public function index()
@@ -223,6 +230,7 @@ class HomeController extends Controller
         $model = new Payment();
         $model->transaction_id = $id;
         $model->image = $file->basename;
+        $model->beneficiary_name = $request->beneficiary_name;
         $model->status = Payment::NOT_VERIFIED;
         $model->save();
 
@@ -247,5 +255,14 @@ class HomeController extends Controller
         $model->email = $request->phone;
         $model->save();
         return '1';
+    }
+
+    public function visitor()
+    {
+	    //if (View::whereRaw('ip = "'.View::get_client_ip().'" and month(created_at) = "'.date( 'm') .'" and day(created_at) = "'.date( 'd' ).'"')->count() == 0) {
+		    $model = new View();
+		    $model->ip = View::get_client_ip();
+		    $model->save();
+	    //}
     }
 }

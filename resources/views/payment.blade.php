@@ -35,6 +35,11 @@
                                 <input name="image" placeholder="image" type="file">
                             </div>
                         </div>
+                        <div class="input-box-2 fix">
+                            <div class="input-box float-left">
+                                {!! Form::text('beneficiary_name',null,['placeholder'=>'Beneficiary Name','required']) !!}
+                            </div>
+                        </div>
                         <div class="input-box submit-box fix">
                             <input value="Send Payment" type="submit">
                         </div>
